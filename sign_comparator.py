@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 
 def sign_comparator(landmark_pos):
     a_sign = {'thumb_bend': 150.1345282825247, 'index_bend': 49.67054162947563, 'middle_bend': 51.75909429349639, 
@@ -20,7 +20,7 @@ def sign_comparator(landmark_pos):
     f_sign = {'thumb_bend': 161.80676290566825, 'index_bend': 115.98887313998024, 'middle_bend': 158.21672435637097,
               'ring_bend': 161.4905515879745, 'little_bend': 168.51142627311995, 'thumb_spread': 23.392122798870073, 
               'index_spread': 12.347788938756052, 'middle_spread': 9.788689217772957, 'ring_spread': 8.393631032781194}
-    
+   
 
     sign_lst = [(a_sign, 'a'), (b_sign, 'b'), (c_sign, 'c'), (d_sign, 'd'), (e_sign, 'e'), (f_sign, 'f')]
     sol = []

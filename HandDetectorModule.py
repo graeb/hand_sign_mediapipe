@@ -2,6 +2,10 @@ import cv2
 import time
 import mediapipe as mp
 import numpy as np
+import pandas as pd
+import os
+
+PATH_FOR_CSV = r'C:\Users\graeb\OneDrive\Pulpit\sign_csv'
 
 class handDetector():
     def __init__(self, mode=False, maxHands=2,modelC=1, detectionCon=0.7, trackCon=0.6):
@@ -70,10 +74,24 @@ class handDetector():
                     text = (f'{angle_str} // {joint}')
                     if draw:   
                         cv2.putText(image, text, tuple(np.multiply(b, [640, 480]).astype(int)),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (55, 55, 255), 2, cv2.LINE_AA)
-                        
-                return angles   
-               
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (55, 55, 255), 2, cv2.LINE_AA)  
+                return angles
+    # def Label(self):
+    #     label = input("Give label = ")
+    #     return label     
+    
+    def SavingCSV(self, label, angles, path):
+        # with open(path, 'r') as read:
+        #     column_names_from_file = read.readline()
+        # sign = 'b'
+        df = pd.DataFrame(index=label,data=angles)
+        # sign.update(angles)
+        # df = pd.DataFrame(data = sign)
+        df.to_csv(path, mode='a', header=False)
+        time.sleep(0.2)   
+        print(f'saved  ')
+ 
+
 def main():
     pTime = 0
     cTime = 0

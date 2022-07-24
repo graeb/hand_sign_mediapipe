@@ -19,7 +19,7 @@ def main():
     if angles:
       predicted_class = sign_comparator(angles)
       cv2.putText(frame, str(predicted_class[0][1]), (10, 150), cv2.FONT_HERSHEY_DUPLEX, 2, (255, 255, 0), 3)
-      detector.SavingCSV(angles = angles, label = ['b'], path=r'C:\Users\graeb\OneDrive\Pulpit\sign_csv\test.csv')
+      detector.SavingCSV(angles = angles, label = ['f'], path=r'C:\Users\graeb\OneDrive\Pulpit\sign_csv\test.csv')
     cTime = time.time()
     fps = 1 / (cTime - pTime)
     pTime = cTime

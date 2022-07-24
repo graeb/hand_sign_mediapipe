@@ -81,12 +81,7 @@ class handDetector():
     #     return label     
     
     def SavingCSV(self, label, angles, path):
-        # with open(path, 'r') as read:
-        #     column_names_from_file = read.readline()
-        # sign = 'b'
         df = pd.DataFrame(index=label,data=angles)
-        # sign.update(angles)
-        # df = pd.DataFrame(data = sign)
         df.to_csv(path, mode='a', header=False)
         time.sleep(0.2)   
         print(f'saved  ')
